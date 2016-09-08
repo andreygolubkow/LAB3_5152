@@ -60,10 +60,12 @@ void TestArray()
 	int size = 0;
 	size = rand() % 10 + 2;
 	double *arr = new double[size];
+	std::cout << "\nFill Matrix \n";
 	Fill(arr, size);
 	for (int i = 0;i < size;i++)
 		std::cout << arr[i] << " ";
 	std::cout << "\n";
+	std::cout << "\nSort Matrix \n";
 	Sort(arr, size);
 	for (int i = 0;i < size;i++)
 		std::cout << arr[i] << " ";
