@@ -24,6 +24,34 @@ void Fill(double * array, int arrayLength)
 		array[i] = rand() % 20;
 }
 
+
+bool MultiplyMatrices(int ** matrixA, int aRows, int aCols, int ** matrixB, int bRows, int bCols, int ** resultMatrix)
+{
+	
+	if (!(aRows > 0 || aCols > 0 || bRows > 0 || bRows > 0 || aCols == bRows))
+	{
+		return false;
+	}
+	else
+	{
+		
+
+
+
+
+		for (int i = 0;i < aRows;i++)
+		{
+			for (int j = 0;j < ;j++)
+				std::cout << resultMatrix[i][j];
+			std::cout << "\n";
+		}
+
+
+	}
+
+}
+
+
 void TestArray()
 {
 	srand(time(0));
@@ -38,6 +66,40 @@ void TestArray()
 	for (int i = 0;i < size;i++)
 		std::cout << arr[i] << " ";
 	delete[] arr;
+	int N = 3;
+	int M = 2;
+	int L = 5;
+	int **aM = new int *[N];
+	for (int i = 0; i<N; i++)
+		aM[i] = new int[M];
+	int **bM = new int *[M];
+	for (int i = 0; i<M; i++)
+		bM[i] = new int[L];
+	int **cM = new int *[N];
+	for (int i = 0; i<N; i++)
+		cM[i] = new int[L];
+	for (int i = 0;i < M;i++)
+	{
+		for (int j = 0;j < N;j++)
+			aM[j][i] = rand() % 10;
+		for (int j = 0;j < L;j++)
+			bM[i][j] = rand() % 10;
+	}
+
+	for (int i = 0;i < N;i++)
+	{
+		for (int j = 0;j < M;j++)
+			std::cout << aM[i][j] << " ";
+		std::cout << "\n";
+	}
+	MultiplyMatrices(aM, N, M, bM, M,L, cM);
+	for (int i = 0; i<N; i++)
+		delete[] aM[i];
+	delete[]aM;
+	for (int i = 0; i<M; i++)
+		delete[] bM[i];
+	delete[]bM;
+	for (int i = 0; i<L; i++)
+		delete[] cM[i];
+	delete[]cM;
 }
-
-
