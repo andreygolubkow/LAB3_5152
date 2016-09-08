@@ -34,15 +34,17 @@ bool MultiplyMatrices(int ** matrixA, int aRows, int aCols, int ** matrixB, int 
 	}
 	else
 	{
-		
 
-
-
-
-		for (int i = 0;i < aRows;i++)
+		int k = 0;
+		for (int i = 0; i<aRows; i++)
+			for (int j = 0; j<bCols; j++)
+				for (resultMatrix[i][j] = 0, k = 0; k<aCols; k++)
+					resultMatrix[i][j] += matrixA[i][k] * matrixB[k][j];
+		std::cout << "\n";
+	for (int i = 0;i < aRows;i++)
 		{
-			for (int j = 0;j < ;j++)
-				std::cout << resultMatrix[i][j];
+			for (int j = 0;j < bCols;j++)
+				std::cout << resultMatrix[i][j]<<"\t";
 			std::cout << "\n";
 		}
 
@@ -85,21 +87,29 @@ void TestArray()
 		for (int j = 0;j < L;j++)
 			bM[i][j] = rand() % 10;
 	}
-
+	std::cout << "\nMatrix A \n";
 	for (int i = 0;i < N;i++)
 	{
 		for (int j = 0;j < M;j++)
 			std::cout << aM[i][j] << " ";
 		std::cout << "\n";
 	}
+	std::cout << "\nMatrix B \n";
+	for (int i = 0;i < M;i++)
+	{
+		for (int j = 0;j < L;j++)
+			std::cout << bM[i][j] << " ";
+		std::cout << "\n";
+	}
+	std::cout << "\nMatrix x Matrix";
 	MultiplyMatrices(aM, N, M, bM, M,L, cM);
 	for (int i = 0; i<N; i++)
 		delete[] aM[i];
 	delete[]aM;
 	for (int i = 0; i<M; i++)
 		delete[] bM[i];
-	delete[]bM;
-	for (int i = 0; i<L; i++)
+	delete[] bM;
+	for (int i = 0; i<N; i++)
 		delete[] cM[i];
 	delete[]cM;
 }
