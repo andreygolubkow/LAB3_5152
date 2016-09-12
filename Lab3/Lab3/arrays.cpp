@@ -53,7 +53,6 @@ bool MultiplyMatrices(int ** matrixA, int aRows, int aCols, int ** matrixB, int 
 
 }
 
-
 void TestArray()
 {
 	srand(time(0));
